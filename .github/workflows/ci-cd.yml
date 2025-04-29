@@ -1,11 +1,11 @@
 name: Python CI/CD Pipeline # workflow name
 
 # trigger the execution when changes pushes to master
-on:
-  push:
-    branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
+#on:
+#  push:
+#    branches: [ "master" ]
+#  pull_request:
+#    branches: [ "master" ]
 
 # define where to execute , default is ubuntu, you may change to windows
 jobs:
