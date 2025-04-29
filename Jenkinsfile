@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         // You can set global env variables here if needed
-        PYTHON = 'python3'
+        PYTHON = 'python'
     }
 
     stages {
