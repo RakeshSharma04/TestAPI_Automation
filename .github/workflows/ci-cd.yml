@@ -1,15 +1,23 @@
-name: Python CI/CD Pipeline
+name: Python CI/CD Pipeline # workflow name
 
+# trigger the execution when changes pushes to master
 on:
   push:
     branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
 
+# define where to execute , default is ubuntu, you may change to windows
 jobs:
+  # define the jobs e.g. build , clean, deploy etc.
   build:
     runs-on: ubuntu-latest
 
+    # define steps
+    # 1. checkout
+    # 2. setup python
+    # 3. install dependencies
+    # run the tests
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
