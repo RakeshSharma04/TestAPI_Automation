@@ -1,11 +1,10 @@
-  on:
-  jobs:name: Python CI/CD Pipeline
+name: Python CI/CD Pipeline
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "master" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "master" ]
 
 jobs:
   build:
@@ -18,13 +17,14 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.13'  # you can change it to 3.11 or 3.12 if you prefer
+          python-version: '3.13'   # Change if your project uses a different Python version
 
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      # (Optional) If you have tests using pytest, keep this. Otherwise, you can comment/remove it.
       - name: Run tests
         run: |
-          pytest tests/   # If you have tests written using pytest
+          pytest tests/
