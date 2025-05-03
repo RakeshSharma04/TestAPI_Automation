@@ -1,8 +1,7 @@
 pipeline {
-    agent any  // Runs on any available agent (can also specify 'linux', 'windows', etc.)
+    agent any
 
     environment {
-        // You can set global env variables here if needed
         PYTHON = 'python'
     }
 
@@ -17,9 +16,9 @@ pipeline {
         stage('Set up Python Environment') {
             steps {
                 echo "Setting up Python environment..."
-                sh '''
-                    ${PYTHON} -m pip install --upgrade pip
-                    pip install -r requirements.txt
+                bat '''
+                    %PYTHON% -m pip install --upgrade pip
+                    %PYTHON% -m pip install -r requirements.txt
                 '''
             }
         }
@@ -27,8 +26,8 @@ pipeline {
         stage('Run Tests') {
             steps {
                 echo "Running tests with pytest..."
-                sh '''
-                    pytest tests/
+                bat '''
+                    %PYTHON% -m pytest tests/
                 '''
             }
         }
