@@ -34,7 +34,7 @@ pipeline {
 
                   // Execute all pytest tests inside the 'tests/' folder
                 bat '''
-                    %PYTHON% -m pytest tests/
+                    %PYTHON% -m pytest --junitxml=test-results.xml tests/
                 '''
             }
         }
