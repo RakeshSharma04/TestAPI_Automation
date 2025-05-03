@@ -3,7 +3,7 @@ from api.store_api import StoreAPI
 from payloads.order_payload import create_sample_order
 from responses.save_response import save_response_to_file
 
-
+# check automatically run
 @pytest.fixture(scope="module")
 def store_api():
     return StoreAPI()
