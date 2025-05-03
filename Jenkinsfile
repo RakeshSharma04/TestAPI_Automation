@@ -18,9 +18,12 @@ pipeline {
         stage('Set up Python Environment') {
             steps {
                 echo "Setting up Python environment..."  // Log message
+
+                // Upgrade pip to the latest version
+                // Install required Python packages from requirements.txt
                 bat '''
-                    %PYTHON% -m pip install --upgrade pip  // Upgrade pip to the latest version
-                    %PYTHON% -m pip install -r requirements.txt  // Install required Python packages from requirements.txt
+                    %PYTHON% -m pip install --upgrade pip
+                    %PYTHON% -m pip install -r requirements.txt
                 '''
             }
         }
@@ -28,8 +31,10 @@ pipeline {
         stage('Run Tests') {
             steps {
                 echo "Running tests with pytest..."  // Log message
+
+                  // Execute all pytest tests inside the 'tests/' folder
                 bat '''
-                    %PYTHON% -m pytest tests/  // Execute all pytest tests inside the 'tests/' folder
+                    %PYTHON% -m pytest tests/
                 '''
             }
         }
