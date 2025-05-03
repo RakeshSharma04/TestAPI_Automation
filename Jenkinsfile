@@ -36,6 +36,7 @@ pipeline {
                 bat '''
                     %PYTHON% -m pytest --junitxml=test-results.xml tests/
                 '''
+                junit 'test-results.xml'  // <-- This is your "post-build action" for JUnit
             }
         }
     }
